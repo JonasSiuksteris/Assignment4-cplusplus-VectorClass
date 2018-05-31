@@ -14,6 +14,12 @@ Vector<T>::Vector(int i)
     size_ = 0;
 }
 
+template <typename T>
+Vector<T>::Vector(initializer_list<T> list) : size_{list.size()}, maxsize{list.size()}, array{new T[maxsize]} {
+    copy(list.begin(), list.end(), array);
+}
+
+
 template<class T>
 Vector<T>::Vector(const Vector& v)
 {
@@ -95,3 +101,9 @@ Vector<T>& Vector<T>::operator=(const Vector& v)
     return *this;
 }
 
+template<typename T>
+void Vector<T>::pop_back()
+{
+    --size_;
+    delete &array[size_];
+}

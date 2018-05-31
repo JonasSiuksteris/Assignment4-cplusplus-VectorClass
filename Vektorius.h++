@@ -12,9 +12,11 @@ class Vector{
     /// Priskiria naują atmintį
     void AllocateNew();
 public:
+    typedef T * iterator;
     /// Konstruktoriai
     Vector();
     Vector(int);
+    Vector(initializer_list<T>);
     /// Kopijavimo konstruktorius
     Vector(const Vector&);
     /// Destruktorius
@@ -27,9 +29,11 @@ public:
     T operator[](int);
     /// Lokacijos funkcija
     int at(T&);
+    /// Sunaikina paskutinį elementą
+    void pop_back();
     /// push_back funkcija su operatoriumi
     Vector& operator+=(const T&);
-    /// P
+    /// Palygina
     Vector& operator =(const Vector&);
 };
 
